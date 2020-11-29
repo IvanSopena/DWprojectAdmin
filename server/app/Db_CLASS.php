@@ -174,7 +174,7 @@ class Db_CLASS {
         $sentencia = "";
 
       
-        $sentencia = "select  Nombre,Apellidos,Email,password, CONCAT(Nombre,' ', Apellidos) as Usuario , Id, rol,foto from " . $GLOBALS['sq']->getTableOwner() . ".Users where id= '" . $id . "'";
+        $sentencia = "select  Name,Surname,Email,Pass, CONCAT(Name,' ', Surname) as Usuario , Id,Photo from " . $this->getTableOwner() . ".Administrators where id= '" . $id . "'";
 
         $result = $this->DB_Select($sentencia);
 
@@ -187,13 +187,10 @@ class Db_CLASS {
 
 
             $this->setMAppUserName($result['Email']);
-            $this->setMAppUserPwd($result['password']);
+            $this->setMAppUserPwd($result['Pass']);
             $this->setMRealUserName($result['Usuario']);
             $this->setMAppUserId($result['Id']);
-            $this->setMAppRol($result['rol']);
-            $this->setUserName($result['Nombre']); 
-            $this->setUserSurname($result['Apellidos']); 
-            $this->setfoto($result['foto']); 
+            $this->setfoto($result['Photo']); 
         }
             
     }
@@ -205,9 +202,9 @@ class Db_CLASS {
          */
         $sentencia = "";
 
-      
+       
 
-        $sentencia = "select  Nombre,Apellidos,Email,password, CONCAT(Nombre,' ', Apellidos) as Usuario , Id,foto from " . $this->getTableOwner() . ".Users where rol = '0' and upper (Email)= '" . strtoupper($AppUser) . "'";
+        $sentencia = "select  Name,Surname,Email,Pass, CONCAT(Name,' ', Surname) as Usuario , Id,Photo from " . $this->getTableOwner() . ".Administrators where upper (Email)= '" . strtoupper($AppUser) . "'";
 
         $result = $this->DB_Select($sentencia);
 
@@ -220,14 +217,15 @@ class Db_CLASS {
 
 
             $this->setMAppUserName($result['Email']);
-            $this->setMAppUserPwd($result['password']);
+            $this->setMAppUserPwd($result['Pass']);
             $this->setMRealUserName($result['Usuario']);
             $this->setMAppUserId($result['Id']);
-            $this->setMAppRol($result['rol']);
-            $this->setfoto($result['foto']); 
+            $this->setfoto($result['Photo']); 
             
+            setcookie("Foto", $result['Photo'], 0, "/"); 
+            setcookie("Id", $result['Id'], 0, "/");
             
-            $AppPwd = $GLOBALS['security']->decrypt($result['password'], strtoupper($AppUser)); 
+            $AppPwd = $GLOBALS['security']->decrypt($result['Pass'], strtoupper($AppUser)); 
             
          	
             

@@ -1,4 +1,4 @@
-<?php require_once("Template/header.php") ?>
+<?php require_once("global/header.php") ?>
 
 <body>
 

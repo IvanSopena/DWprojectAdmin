@@ -13,4 +13,4 @@
  
 
     //define('RUTA_URL', 'http://localhost/');
-    define('NOMBRE_APP', 'Streaming Movies');
+    define('NOMBRE_APP', 'Streaming Movies-Admin Mode');

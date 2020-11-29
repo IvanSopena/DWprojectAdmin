@@ -27,13 +27,24 @@ class Home extends Controlador
 	public function login()
 	{
 		$model = $this->modelo('LoginModel');
-		$user = $_POST["mail_user"];
+		$user = $_POST["email"];
 		$pass = $_POST["pass"];
 
 		$model->login($user, $pass) === false;
 		
 		$this->vista($model->getView(), '');
 		
+		$GLOBALS['sq']->DbClose();	
+	}
+
+	public function logoff()
+	{
+		session_start();
+        // Eliminar todas las sesiones:
+        session_unset();
+        $GLOBALS['type'] = "info";
+		$GLOBALS['error'] = "Sesion cerrada con exito.";
+		$this->vista('login', '');
 		$GLOBALS['sq']->DbClose();	
 	}
 }
