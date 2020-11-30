@@ -1,10 +1,10 @@
-<?php require_once("global/header.php") ?>
+<?php require_once("global/header.php");require_once('server/models/MoviesModel.php'); ?>
 <div class="wrapper">
 
     <div class="iq-sidebar">
         <div class="iq-sidebar-logo d-flex justify-content-between">
             <a href="index-2.html" class="header-logo">
-                <img src="/DWProject/public/img/logo_Transparente.png" class="img-fluid rounded-normal" alt="">
+                <img src="/DWprojectAdmin/public/img/logo_Transparente.png" class="img-fluid rounded-normal" alt="">
             </a>
              <div class="iq-menu-bt-sidebar">
                 <div class="iq-menu-bt align-self-center">
@@ -25,7 +25,7 @@
             <div class="row">
                <div class="col-lg-8">
                   <div class="iq-header-title">
-                     <h4 class="card-title">Resumen</h4>
+                     <h4 class="card-title">Resumen Semanal</h4>
                   </div>
                   <div class="row iq-mini_cards">
                 
@@ -36,7 +36,7 @@
                               <div class="d-flex align-items-center justify-content-between">
                                  <div class="iq-cart-text text-capitalize">
                                     <p class="mb-0">
-                                       Vistas
+                                       Visualiz.
                                     </p>
                                  </div>
                                  <div class="icon iq-icon-box-top rounded-circle bg-primary">
@@ -113,7 +113,6 @@
                   </div>
             </div>
             <div class="row">
-            
                <div class="col-lg-12">
                   <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                      <div class="iq-card-header d-flex align-items-center justify-content-between">
@@ -125,140 +124,32 @@
                      <div class="iq-card-body row align-items-center">
                        <div class="col-lg-12">
                            <div class="row mb-3">
-                              <div class="col-sm-6 col-md-4 col mb-3">
-                                 <div class="iq-progress-bar progress-bar-vertical iq-bg-primary">
-                                    <span class="bg-primary" data-percent="100" style="transition: height 2s ease 0s; width: 100%; height: 40%;"></span>
-                                 </div>
-                                 <div class="media align-items-center">
-                                    <div class="iq-icon-box-view rounded mr-3 iq-bg-primary"><i class="fa fa-film font-size-32"></i></div>
-                                    <div class="media-body text-white">
-                                       <h6 class="mb-0 font-size-14 line-height">Comedia</h6>
-                                       <small class="text-primary mb-0">+34%</small>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-sm-6 col-md-4 col mb-3">
-                                 <div class="iq-progress-bar progress-bar-vertical iq-bg-secondary">
-                                    <span class="bg-secondary" data-percent="100" style="transition: height 2s ease 0s; width: 100%; height: 70%;"></span>
-                                 </div>
-                                 <div class="media align-items-center">
-                                    <div class="iq-icon-box-view rounded mr-3 iq-bg-secondary"><i class="ri-emotion-laugh-line font-size-32"></i></div>
-                                    <div class="media-body text-white">
-                                       <p class="mb-0 font-size-14 line-height">Romantica</p>
-                                       <small class="text-secondary mb-0">+44%</small>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-sm-6 col-md-4 col mb-3">
-                                 <div class="iq-progress-bar progress-bar-vertical iq-bg-info">
-                                    <span class="bg-info" data-percent="100" style="transition: height 2s ease 0s; width: 100%; height: 40%;"></span>
-                                 </div>
-                                 <div class="media align-items-center">
-                                    <div class="iq-icon-box-view rounded mr-3 iq-bg-info"><i class="ri-skull-2-fill font-size-32"></i></div>
-                                    <div class="media-body text-white">
-                                       <p class="mb-0 font-size-14 line-height">Terror</p>
-                                       <small class="text-info mb-0">+56%</small>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-sm-6 col-md-4 col mb-3">
-                                 <div class="iq-progress-bar progress-bar-vertical iq-bg-warning">
-                                    <span class="bg-warning" data-percent="100" style="transition: height 2s ease 0s; width: 40%; height: 40%;"></span>
-                                 </div>
-                                 <div class="media align-items-center">
-                                    <div class="iq-icon-box-view rounded mr-3 iq-bg-warning"><i class="ri-emotion-sad-line font-size-32"></i></div>
-                                    <div class="media-body text-white">
-                                       <p class="mb-0 font-size-14 line-height">Drama</p>
-                                       <small class="text-warning mb-0">+65%</small>
-                                    </div>
-                                 </div>
-                              </div>                           
-                              <div class="col-sm-6 col-md-4 col mb-3">
-                                 <div class="iq-progress-bar progress-bar-vertical iq-bg-success">
-                                    <span class="bg-success" data-percent="100" style="transition: height 2s ease 0s; width: 60%; height: 60%;"></span>
-                                 </div>
-                                 <div class="media align-items-center mb-lg-0 mb-3">
-                                    <div class="iq-icon-box-view rounded mr-3 iq-bg-success"><i class="fa fa-child font-size-32"></i></div>
-                                    <div class="media-body text-white">
-                                       <p class="mb-0 font-size-14 line-height">Infantiles</p>
-                                       <small class="text-success mb-0">+74%</small>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-sm-6 col-md-4 col mb-3">
-                                 <div class="iq-progress-bar progress-bar-vertical iq-bg-danger">
-                                    <span class="bg-danger" data-percent="100" style="transition: height 2s ease 0s; width: 80%; height: 80%;"></span>
-                                 </div>
-                                 <div class="media align-items-center">
-                                    <div class="iq-icon-box-view rounded mr-3 iq-bg-danger"><i class="ri-criminal-line font-size-32"></i></div>
-                                    <div class="media-body text-white">
-                                       <p class="mb-0 font-size-14 line-height">Fantasia</p>
-                                       <small class="text-danger mb-0">+40%</small>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-sm-6 col-md-4 col mb-3">
-                                 <div class="iq-progress-bar progress-bar-vertical iq-bg-success">
-                                    <span class="bg-success" data-percent="100" style="transition: height 2s ease 0s; width: 60%; height: 60%;"></span>
-                                 </div>
-                                 <div class="media align-items-center mb-lg-0 mb-3">
-                                    <div class="iq-icon-box-view rounded mr-3 iq-bg-success"><i class="fa fa-child font-size-32"></i></div>
-                                    <div class="media-body text-white">
-                                       <p class="mb-0 font-size-14 line-height">Thriller</p>
-                                       <small class="text-success mb-0">+74%</small>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-sm-6 col-md-4 col mb-3">
-                                 <div class="iq-progress-bar progress-bar-vertical iq-bg-danger">
-                                    <span class="bg-danger" data-percent="100" style="transition: height 2s ease 0s; width: 80%; height: 80%;"></span>
-                                 </div>
-                                 <div class="media align-items-center">
-                                    <div class="iq-icon-box-view rounded mr-3 iq-bg-danger"><i class="ri-criminal-line font-size-32"></i></div>
-                                    <div class="media-body text-white">
-                                       <p class="mb-0 font-size-14 line-height">Dcumental</p>
-                                       <small class="text-danger mb-0">+40%</small>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-sm-6 col-md-4 col mb-3">
-                                 <div class="iq-progress-bar progress-bar-vertical iq-bg-success">
-                                    <span class="bg-success" data-percent="100" style="transition: height 2s ease 0s; width: 60%; height: 60%;"></span>
-                                 </div>
-                                 <div class="media align-items-center mb-lg-0 mb-3">
-                                    <div class="iq-icon-box-view rounded mr-3 iq-bg-success"><i class="fa fa-child font-size-32"></i></div>
-                                    <div class="media-body text-white">
-                                       <p class="mb-0 font-size-14 line-height">Acción</p>
-                                       <small class="text-success mb-0">+74%</small>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-sm-6 col-md-4 col mb-3">
-                                 <div class="iq-progress-bar progress-bar-vertical iq-bg-danger">
-                                    <span class="bg-danger" data-percent="100" style="transition: height 2s ease 0s; width: 80%; height: 80%;"></span>
-                                 </div>
-                                 <div class="media align-items-center">
-                                    <div class="iq-icon-box-view rounded mr-3 iq-bg-danger"><i class="ri-criminal-line font-size-32"></i></div>
-                                    <div class="media-body text-white">
-                                       <p class="mb-0 font-size-14 line-height">Belico</p>
-                                       <small class="text-danger mb-0">+40%</small>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="col-sm-6 col-md-4 col mb-3">
-                                 <div class="iq-progress-bar progress-bar-vertical iq-bg-danger">
-                                    <span class="bg-danger" data-percent="100" style="transition: height 2s ease 0s; width: 80%; height: 80%;"></span>
-                                 </div>
-                                 <div class="media align-items-center">
-                                    <div class="iq-icon-box-view rounded mr-3 iq-bg-danger"><i class="ri-criminal-line font-size-32"></i></div>
-                                    <div class="media-body text-white">
-                                       <p class="mb-0 font-size-14 line-height">Ciencia Ficción</p>
-                                       <small class="text-danger mb-0">+40%</small>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           
+                              
+
+                                 <?php
+                                    $modelo = new MoviesModel();
+                                    $resultado = $modelo->charge_category();
+                                    if($resultado === ""){
+                                       echo " <h4 class='card-title'>No hay Datos. Seguro que hay problemas</h4>";
+                                    }else{
+                                       
+                                       while ($dato = $resultado->fetch()){
+                                          echo "<div class='col-sm-6 col-md-4 col mb-3'>
+                                                   <div class='iq-progress-bar progress-bar-vertical iq-bg-". $dato['Color'] ."'>
+                                                      <span class='bg-". $dato['Color'] ."' data-percent='100' style='transition: height 2s ease 0s; width: 100%; height: 70%;'></span>
+                                                   </div>
+                                                   <div class='media align-items-center'>
+                                                      <div class='iq-icon-box-view rounded mr-3 iq-bg-". $dato['Color'] ."'><i class='". $dato['Icon'] ." font-size-32'></i></div>
+                                                      <div class='media-body text-white'>
+                                                            <p class='mb-0 font-size-14 line-height'>". $dato['CatDesc'] ."</p>
+                                                            <small class='text-". $dato['Color'] ." mb-0'>+44%</small>
+                                                      </div>
+                                                   </div>
+                                                </div>";
+                                       }
+                                    }
+                                 ?>
+
                         </div> 
                         
                      </div>
@@ -404,9 +295,23 @@
                </div>
             </div>
          </div>
-      </div>
-   </div>
-
+</div>
+   <?php
+         if (isset($GLOBALS['error'])) 
+         { 
+                    
+            echo " <script>
+                     toastr.".$GLOBALS['type']."('".$GLOBALS['error']."','STREAMING MOVIES',{
+                       'closeButton': true,
+                       'preventDuplicates': false,
+                       'progressBar': false,
+                       'positionClass': 'toast-bottom-full-width'
+                      });
+                  </script>";
+           
+                  $GLOBALS['error'] = "";
+          }
+   ?>              
    <?php require_once("global/footer.php") ?>
 </body>
 

@@ -42,8 +42,10 @@
                                           'positionClass': 'toast-bottom-full-width'
                                     });
                                  </script>";
-                        
+                                 
+                        $GLOBALS['error'] = "";
                     }
+
             ?>              
          </div>
       </section>
