@@ -28,7 +28,7 @@ class MoviesModel
                 $GLOBALS['sq']->connect_DB();
             }
 
-            $sql = "select  CatDesc,Icon,Color from " . $GLOBALS['sq']->getTableOwner() . ".Categorymovie "; 
+            $sql = "select  CatDesc,Icon,Color from " . $GLOBALS['sq']->getTableOwner() . ".CategoryMovie "; 
     
             $result = $GLOBALS['sq']->DbSelect_tablas($sql);
     
@@ -55,3 +55,19 @@ class MoviesModel
     }
 
 }
+
+/* Select al1.CatDesc,al1.IdCat,count(al3.IdMovie), 
+
+CONCAT(ROUND(count(al2.IdMovie) * (select count(IdMovie) from Movies) /100, 2), '%') as porcentaje
+
+from 
+CategoryMovie as al1, 
+UserMovie as al2, 
+Movies as al3
+
+where
+
+al1.IdCat = al3.cat and
+al3.IdMovie = al2.IdMovie
+
+Group by al1.IdCat */
