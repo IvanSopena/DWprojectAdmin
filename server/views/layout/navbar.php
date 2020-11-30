@@ -6,8 +6,8 @@
                      <div class="main-circle"><i class="fa fa-bars"></i></div>
                   </div>
                    <div class="iq-navbar-logo d-flex justify-content-between">
-                     <a href="Dwproject/home" class="header-logo">
-                        <img src="/DWProject/public/img/logo_Transparente.png" class="img-fluid rounded-normal" alt="">
+                     <a href="/DWprojectAdmin/home" class="header-logo">
+                        <img src="/DWprojectAdmin/public/img/logo_Transparente.png" class="img-fluid rounded-normal" alt="">
                        
                      </a>
                   </div> 
