@@ -13,46 +13,51 @@
                   </div> 
                </div>
                <div class="iq-search-bar ml-auto">
-                  <!-- <form action="#" class="searchbox">
-                     <input type="text" class="text search-input" placeholder="Search Here...">
-                     <a class="search-link" href="#"><i class="ri-search-line"></i></a>
-                  </form> -->
+                  
                </div> 
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"  aria-label="Toggle navigation">
                   <i class="ri-menu-3-line"></i>
                </button>
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-list">
-
                         <li class="nav-item nav-icon ">
-                            <a href="#" class="search-toggle iq-waves-effect text-gray rounded">
-                                <i class="fa fa-envelope"></i>
-                                <span class="bg-primary dots"></span>
-                                
-                            </a>
-                            <div class="iq-sub-dropdown">
-                                <div class="iq-card shadow-none m-0">
-                                    <div class="iq-card-body p-0 ">
-                                        <div class="bg-primary p-3">
-                                            <h5 class="mb-0 text-white">All Messages<small
-                                                    class="badge  badge-light float-right pt-1">5</small></h5>
-                                        </div>
-                                        <a href="#" class="iq-sub-card">
-                                            <div class="media align-items-center">
-                                                <div class="">
-                                                    <img class="avatar-40 rounded"
-                                                        src="/DWprojectAdmin/public/img/users/" alt="">
-                                                </div>
-                                                <div class="media-body ml-3">
-                                                    <h6 class="mb-0 ">Barry Emma Watson</h6>
-                                                    <small class="float-left font-size-12">13 Jun</small>
+                          <?php
+                                require_once('server/models/UserModel.php');
+                                  $modelo = new UserModel();
+                                  $resultado = $modelo->search_messages($_COOKIE["Id"]);
+                                  if($resultado->rowcount() === 0){
+                                     echo "  <a href='#' class='search-toggle iq-waves-effect text-gray rounded'>
+                                                <i class='fa fa-envelope'></i>               
+                                             </a>";
+                                  }else{
+                                     
+                                     while ($dato = $resultado->fetch()){
+                                        echo "
+                                        <a href='#' class='search-toggle iq-waves-effect text-gray rounded'>
+                                            <i class='fa fa-envelope'></i>
+                                            <span class='bg-primary dots'></span>                         
+                                        </a>
+                                        <div class='iq-sub-dropdown'>
+                                            <div class='iq-card shadow-none m-0'>
+                                                <div class='iq-card-body p-0 '>
+                                                    <div class='bg-primary p-3'>
+                                                        <h5 class='mb-0 text-white'>Tienes nuevos mensajes<small class='badge  badge-light float-right pt-1'>". $resultado->rowcount() ."</small></h5>
+                                                    </div>
+                                                <a href='#' class='iq-sub-card'>
+                                                <div class='media align-items-center'>
+                                                        <div class='media-body ml-3'>
+                                                            <h6 class='mb-0 '>". $dato['emisor'] ."</h6> 
+                                                            <small class='float-left font-size-12'>". $dato['SendDate'] ."</small>
+                                                        </div>
+                                                    </div>
+                                                    </a>
+                                        
                                                 </div>
                                             </div>
-                                        </a>
-
-                                    </div>
-                                </div>
-                            </div>
+                                        </div>";
+                                     }
+                                  }
+                          ?>
                         </li>
                         <li class="line-height pt-3">
                             <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">
@@ -63,17 +68,18 @@
                                 <div class="iq-card shadow-none m-0">
                                     <div class="iq-card-body p-0 ">
                                         <div class="bg-primary p-3">
-                                            <h5 class="mb-0 text-white line-height">Hello Barry Tech</h5>
-                                            <span class="text-white font-size-12">Available</span>
+                                            <h5 class="mb-0 text-white line-height"><?php echo $GLOBALS["sq"]->getMRealUserName()?></h5>
+                                            <span class="text-white font-size-12"><?php echo $GLOBALS["sq"]->getUserName()?></span>
                                         </div>
+                                        
                                         <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
                                             <div class="media align-items-center">
                                                 <div class="rounded iq-card-icon iq-bg-primary">
                                                     <i class="ri-file-user-line"></i>
                                                 </div>
                                                 <div class="media-body ml-3">
-                                                    <h6 class="mb-0 ">My Profile</h6>
-                                                    <p class="mb-0 font-size-12">View personal profile details.</p>
+                                                    <h6 class="mb-0 ">Mi Perfil</h6>
+                                                    <p class="mb-0 font-size-12">Visualiza tu perfil o editalo</p>
                                                 </div>
                                             </div>
                                         </a>
@@ -84,7 +90,7 @@
                                                     <i class="ri-login-box-line ml-2"></i>
                                                 </div>
                                                 <div class="media-body ml-3">
-                                                    <h6 class="mb-0 ">Sign out</h6>
+                                                    <h6 class="mb-0 ">Cerrar Sesión</h6>
                                                 </div>
                                             </div>
                                         </a>

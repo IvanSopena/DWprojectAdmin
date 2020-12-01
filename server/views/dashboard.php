@@ -136,13 +136,13 @@
                                        while ($dato = $resultado->fetch()){
                                           echo "<div class='col-sm-6 col-md-4 col mb-3'>
                                                    <div class='iq-progress-bar progress-bar-vertical iq-bg-". $dato['Color'] ."'>
-                                                      <span class='bg-". $dato['Color'] ."' data-percent='100' style='transition: height 2s ease 0s; width: 100%; height: 70%;'></span>
+                                                      <span class='bg-". $dato['Color'] ."' data-percent='". $dato['valores'] ."' style='transition: height 2s ease 0s; width: 100%; height: 70%;'></span>
                                                    </div>
                                                    <div class='media align-items-center'>
                                                       <div class='iq-icon-box-view rounded mr-3 iq-bg-". $dato['Color'] ."'><i class='". $dato['Icon'] ." font-size-32'></i></div>
                                                       <div class='media-body text-white'>
                                                             <p class='mb-0 font-size-14 line-height'>". $dato['CatDesc'] ."</p>
-                                                            <small class='text-". $dato['Color'] ." mb-0'>+44%</small>
+                                                            <small class='text-". $dato['Color'] ." mb-0'>". $dato['porcentaje'] ."</small>
                                                       </div>
                                                    </div>
                                                 </div>";
@@ -160,14 +160,14 @@
                   <div class="iq-card">
                      <div class="iq-card-header d-flex justify-content-between">
                         <div class="iq-header-title">
-                           <h4 class="card-title">Peliculas mas vistas</h4>
+                           <h4 class="card-title">Peliculas favoritas de los usuarios</h4>
                         </div>
                         <div class="iq-card-header-toolbar d-flex align-items-center seasons">
                            <div class="iq-custom-select d-inline-block sea-epi s-margin">
-                              <select name="cars" class="form-control season-select">
+                              <!-- <select name="cars" class="form-control season-select">
                                  <option value="season1">Mas Vistas</option>
                                  <option value="season2">Menos Vistas</option>
-                              </select>
+                              </select> -->
                            </div>
                         </div>
                      </div>
@@ -176,117 +176,44 @@
                            <table class="data-tables table movie_table" style="width:100%">
                               <thead>
                                  <tr>
-                                    <th style="width:20%;">Movie</th>
-                                    <th style="width:10%;">Rating</th>
-                                    <th style="width:20%;">Category</th>
-                                    <th style="width:10%;">Download/Views</th>
-                                    <th style="width:10%;">User</th>
-                                    <th style="width:20%;">Date</th>
+                                    <!-- <th style="width:20%;">Cover</th> -->
+                                    <th style="width:20%;">Titulo</th>
+                                    <th style="width:10%;">Tipo</th>
+                                    <th style="width:20%;">Categoria</th>
+                                    <th style="width:10%;">Estado</th>
                                     <th style="width:10%;"><i class="fa fa-heart"></i></th>
                                  </tr>
                               </thead>
                               <tbody>
-                                 <tr>
-                                    <td>
-                                       <div class="media align-items-center">
-                                          <div class="iq-movie">
-                                             <a href="javascript:void(0);"><img src="../assets/images/movie-thumb/01.jpg" class="img-border-radius avatar-40 img-fluid" alt=""></a>
-                                          </div>
-                                          <div class="media-body text-white text-left ml-3">
-                                             <p class="mb-0">Champions</p>
-                                             <small>1h 40m</small>
-                                          </div>
-                                       </div>
-                                    </td>
-                                    <td><i class="fa fa-star mr-2"></i> 9.2</td>
-                                    <td>Horror</td>
-                                    <td>
-                                       <i class="fa fa-eye "></i>
-                                    </td>
-                                    <td>Unsubcriber</td>
-                                    <td>21 July,2020</td>
-                                    <td><i class="fa fa-heart text-primary"></i></td>
-                                 </tr>
-                                 <tr>
-                                    <td >
-                                       <div class="media align-items-center">
-                                          <div class="iq-movie">
-                                             <a href="javascript:void(0);"><img src="../assets/images/show-thumb/05.jpg" class="img-border-radius avatar-40 img-fluid" alt=""></a>
-                                          </div>
-                                          <div class="media-body text-white text-left ml-3">
-                                             <p class="mb-0">Last Race</p>
-                                          </div>
-                                       </div>
-                                    </td>
-                                    <td><i class="fa fa-star mr-2"></i> 7.2</td>
-                                    <td>Horror</td>
-                                    <td>
-                                       <i class="fa fa-eye "></i>
-                                    </td>
-                                    <td>subcriber</td>
-                                    <td>22 July,2020</td>
-                                    <td><i class="fa fa-heart text-primary"></i></td>
-                                 </tr>
-                                 <tr>
-                                    <td>
-                                       <div class="media align-items-center">
-                                          <div class="iq-movie">
-                                             <a href="javascript:void(0);"><img src="../assets/images/show-thumb/07.jpg" class="img-border-radius avatar-40 img-fluid" alt=""></a>
-                                          </div>
-                                          <div class="media-body text-white text-left ml-3">
-                                             <p class="mb-0">Boop Bitty</p>
-                                          </div>
-                                       </div>
-                                    </td>
-                                    <td><i class="fa fa-star mr-2"></i> 8.2</td>
-                                    <td>Thriller</td>
-                                    <td>
-                                       <i class="fa fa-eye "></i>
-                                    </td>
-                                    <td>Unsubcriber</td>
-                                    <td>23 July,2020</td>
-                                    <td><i class="fa fa-heart text-primary"></i></td>
-                                 </tr>
-                                 <tr>
-                                    <td>
-                                       <div class="media align-items-center">
-                                          <div class="iq-movie">
-                                             <a href="javascript:void(0);"><img src="../assets/images/show-thumb/10.jpg" class="img-border-radius avatar-40 img-fluid" alt=""></a>
-                                          </div>
-                                          <div class="media-body text-white text-left ml-3">
-                                             <p class="mb-0">Dino Land</p>
-                                          </div>
-                                       </div>
-                                    </td>
-                                    <td><i class="fa fa-star mr-2"></i> 8.5</td>
-                                    <td>Action</td>
-                                    <td>
-                                       <i class="fa fa-eye "></i>
-                                    </td>
-                                    <td>Unsubcriber</td>
-                                    <td>24 July,2020</td>
-                                    <td><i class="fa fa-heart text-primary"></i></td>
-                                 </tr>
-                                 <tr>
-                                    <td>
-                                       <div class="media align-items-center">
-                                          <div class="iq-movie">
-                                             <a href="javascript:void(0);"><img src="../assets/images/show-thumb/04.jpg" class="img-border-radius avatar-40 img-fluid" alt=""></a>
-                                          </div>
-                                          <div class="media-body text-white text-left ml-3">
-                                             <p class="mb-0">The Last Breath</p>
-                                          </div>
-                                       </div>
-                                    </td>
-                                    <td><i class="fa fa-star mr-2"></i> 8.9</td>
-                                    <td>Horror</td>
-                                    <td>
-                                       <i class="fa fa-eye "></i>
-                                    </td>
-                                    <td>subcriber</td>
-                                    <td>25 July,2020</td>
-                                    <td><i class="fa fa-heart text-primary"></i></td>
-                                 </tr>
+                              <?php
+                                    $modelo = new MoviesModel();
+                                    $resultado = $modelo->charge_movie();
+                                    if($resultado === ""){
+                                       echo " <h4 class='card-title'>No hay Datos. Seguro que hay problemas</h4>";
+                                    }else{
+                                       
+                                       while ($dato = $resultado->fetch()){
+                                          echo "<tr>
+                                                   <td>
+                                                      <div class='media align-items-center'>
+                                                         <div class='iq-movie'>
+                                                               <a href='javascript:void(0);'><img src='/DWprojectAdmin". $dato['cover'] ." ' class='img-border-radius avatar-40 img-fluid' alt=''></a>
+                                                         </div>
+                                                         <div class='media-body text-white text-left ml-3'>
+                                                               <p class='mb-0'>". $dato['titulo'] ."</p>
+                                                               <small>". $dato['duracion'] ." min</small>
+                                                         </div>
+                                                      </div>
+                                                   </td>
+                                                   <td>". $dato['tipo'] ."</td>
+                                                   <td>". $dato['cat'] ."</td>
+                                                   
+                                                   <td>". $dato['status'] ."</td>
+                                                   <td><i class='fa fa-heart text-primary'></i></td>
+                                           </tr>";
+                                       }
+                                    }
+                                 ?>
                               </tbody>
                            </table>
                         </div>

@@ -79,7 +79,7 @@ class Db_CLASS {
     }
 
     function getUserName() {
-        return $this->UserName;
+        return $this->mAppUserName;
     }
 
     function getMRealUserName() {
