@@ -24,7 +24,7 @@
                           <?php
                                 require_once('server/models/UserModel.php');
                                   $modelo = new UserModel();
-                                  $resultado = $modelo->search_messages($_COOKIE["Id"]);
+                                  $resultado = $modelo->search_messages($GLOBALS["sq"]->getMAppUserId());
                                   if($resultado->rowcount() === 0){
                                      echo "  <a href='#' class='search-toggle iq-waves-effect text-gray rounded'>
                                                 <i class='fa fa-envelope'></i>               
@@ -72,7 +72,7 @@
                                             <span class="text-white font-size-12"><?php echo $GLOBALS["sq"]->getUserName()?></span>
                                         </div>
                                         
-                                        <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
+                                        <a href="/DWprojectAdmin/profile" class="iq-sub-card iq-bg-primary-hover">
                                             <div class="media align-items-center">
                                                 <div class="rounded iq-card-icon iq-bg-primary">
                                                     <i class="ri-file-user-line"></i>

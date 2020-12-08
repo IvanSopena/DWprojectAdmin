@@ -1,7 +1,7 @@
 <div id="sidebar-scrollbar">
             <nav class="iq-sidebar-menu">
                <ul id="iq-sidebar-toggle" class="iq-menu">
-                  <li class="active active-menu"><a href="/DWprojectAdmin/home" class="iq-waves-effect"><i class="fa fa-home iq-arrow-left"></i><span>Home</span></a></li>
+                  <li class="active active-menu"><a href="/DWprojectAdmin/" class="iq-waves-effect"><i class="fa fa-home iq-arrow-left"></i><span>Home</span></a></li>
                   
                  <!--  <li><a href="comment.html" class="iq-waves-effect"><i class="fa fa-comments"></i><span>Comentarios</span></a></li> -->
                   <li><a href="user.html" class="iq-waves-effect"><i class="fa fa-users"></i><span>Usuarios</span></a></li>

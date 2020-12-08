@@ -6,6 +6,7 @@ include 'server/app/Security.php';
 include 'server/config/Config.php';
 include 'server/library/Controlador.php';
 include  'server/controllers/Home.php';
+include  'server/controllers/ProfileController.php';
 include 'server/app/Db_CLASS.php';
 
 
@@ -14,6 +15,7 @@ $error = null;
 $type = null;
 $router = new Router\Router('/DWprojectAdmin');
 $home = new Home();
+$profile = new ProfileController();
 $sq = new Db_CLASS();
 $security = new Security();
 
@@ -29,6 +31,14 @@ $router->add('/logoff', function() {
 
 $router->post('/login', function() {
     $GLOBALS['home']->login();
+});
+
+$router->post('/update_profile', function() {
+    $GLOBALS['profile']->save();
+});
+
+$router->add('/profile', function() {
+    $GLOBALS['profile']->profile();
 });
 
 $router->add('/.*', function () {

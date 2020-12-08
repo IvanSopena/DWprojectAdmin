@@ -29,6 +29,10 @@
    <script src="/DWprojectAdmin/public/plugins/js/apexcharts.js"></script>
    <!-- Chart Custom JavaScript -->
    <script src="/DWprojectAdmin/public/plugins/js/chart-custom.js"></script>
+   <!-- Dateflatpickr JavaScript -->
+   <script src="/DWprojectAdmin/public/plugins/js/flatpickr.min.js"></script>
+    <!-- validate JavaScript -->
+    <script src="/DWprojectAdmin/public/plugins/js/jquery.validate.js"></script>
    <!-- Custom JavaScript -->
    <script src="/DWprojectAdmin/public/js/main.js"></script>
-
+   <script src="/DWprojectAdmin/public/js/pass.js"></script>

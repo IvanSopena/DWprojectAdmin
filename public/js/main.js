@@ -705,4 +705,116 @@
         
     });
 
+  /*---------------------------------------------------------------------
+    Validacion
+  -----------------------------------------------------------------------*/
+  $().ready(function() {
+    $("#data_user").validate({
+      rules: {
+        name:{
+          required: true,
+					minlength: 2
+        },
+        surname:{
+          required: true,
+					minlength: 2
+        },
+        email:{
+          required: true,
+					email: true
+        },
+        city:{
+          required: true,
+					minlength: 2
+        },
+        date: {
+          required: true
+        },
+        customRadio1:{
+          required: true
+        },
+        job:{
+          required: true
+        },
+        country:{
+          required: true
+        },
+        address:{
+          required: true,
+          minlength: 5/* ,
+          maxlength: 30 */
+        
+        }
+        
+      },
+      messages: {
+        name: {
+					required: "El campo Nombre es obligatorio",
+					minlength: "El campo de Nombre no puede ser inferior a 2 caracteres"
+        },
+        surname: {
+					required: "El campo Apellidos es obligatorio",
+					minlength: "El campo de Apellidos no puede ser inferior a 2 caracteres"
+        },
+        email: "Debe poner una dirección de correo electronico valida",
+        city: {
+					required: "El campo Ciudad es obligatorio",
+					minlength: "El campo de Ciudad no puede ser inferior a 2 caracteres"
+        },
+        date: {
+					required: "El campo Fecha de Nacimiento es obligatorio"
+        },
+        customRadio1: {
+					required: "<br/> Debe elegir su genero."
+        },
+        job: {
+					required: "<br/>Debe elegir su puesto de trabajo."
+        },
+        country: {
+					required: "<br/>Debe elegir su país."
+        },
+        address: {
+          required: "Este campo es obligatorio,por favor introduce una dirección. 5-30 caracteres",
+           minlength: "Este campo no puede ser inferior a 5 caracteres."/* ,
+          maxlength: "Este campo no puede ser superior a 30 caracteres." */
+        },
+      },
+    
+    
+    });
+
+    $("#pass_form").validate({
+      rules: {
+        pass: {
+          required: true,
+          minlength: 8
+        },
+        validate: {
+          required: true,
+          minlength: 8,
+          equalTo: "#npass"
+        }
+        
+      },
+      messages: {
+        
+        pass: {
+          required: "Por favor introduce una contraseña",
+          minlength: "La contraseña debe de ser al menos de 8 caracteres"
+        },
+        validate: {
+          required: "Por favor introduce una contraseña",
+          minlength: "La contraseña debe de ser al menos de 8 caracteres",
+          equalTo: "Las contraseñas no coinciden,por favor reviselas antes de continuar"
+         
+        },
+
+       }
+			} );
+
+  });
+  
+
+
+
 })(jQuery);

@@ -1772,13 +1772,13 @@ $(document).ready(function() {
     }
     
 
-    $(".file-upload").on('change', function(){
+     $(".file-upload").on('change', function(){
         readURL(this);
     });
     
     $(".upload-button").on('click', function() {
        $(".file-upload").click();
-    });
+    }); 
 });
 
 
