@@ -25,4 +25,15 @@
 			}
 			
 		}
+		
+		public function vista_grid($vista, $datos,$campos = [],$titulo){
+			//chequear si el archivo vista existe
+			if (file_exists('server/views/' . $vista . '.php')) {
+				require_once  'server/views/' . $vista . '.php';
+			}else{
+				//si el archivo de la vista no existe
+				require_once  'server/views/404.php';
+			}
+			
+		}
 	}

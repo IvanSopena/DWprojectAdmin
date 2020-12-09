@@ -19,7 +19,23 @@
     </div>
     <?php require_once("layout/navbar.php") ?>
 
-
+    <?php
+         if (isset($GLOBALS['error'])) 
+         { 
+           $err =  $GLOBALS['error'];        
+            echo " <script>
+                     toastr.".$GLOBALS['type']."('".$err."','STREAMING MOVIES',{
+                       'closeButton': true,
+                       'debug': true,
+                       'preventDuplicates': false,
+                       'progressBar': false,
+                       'positionClass': 'toast-bottom-full-width'
+                      });
+                  </script>";
+           
+                  $GLOBALS['error'] = "";
+          }
+   ?>              
     <div id="content-page" class="content-page">
          <div class="container-fluid">
             <div class="row">
@@ -58,7 +74,7 @@
                                     <div class="form-group row align-items-center">
                                        <div class="col-md-12">
                                           <div class="profile-img-edit">
-                                             <img id="FotoPerfil" class="profile-pic" src="<?php echo  "/DWprojectAdmin/public/img/users/" .$datos["photo"]; ?>" alt="profile-pic">
+                                             <img id="FotoPerfil" class="profile-pic" src="<?php echo  "/DWprojectAdmin/public/img/users/" .$_COOKIE["Foto"]; ?>" alt="profile-pic">
                                              <div class="p-image">
                                                 <i class="ri-pencil-line upload-button"></i>
                                                 <input class="file-upload" id="thefile" name="thefile" type="file" value = ""/>
@@ -194,13 +210,11 @@
                                       
                                        <div class="form-group col-sm-12">
                                           <label>Direccion:</label>
-                                          <textarea class="form-control" name="address" rows="5" style="line-height: 22px;">
-                                          <?php echo $datos["address"]; ?>
-                                          </textarea>
+                                          <textarea class="form-control" name="address" rows="5" ><?php echo trim($datos["address"]); ?></textarea>
                                        </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary mr-2">Cambiar</button>
-                                    <a href="/DWprojectAdmin/" class="btn iq-bg-danger">Cancelar</a>
+                                    <a href="/DWprojectAdmin/" class="btn btn-primary">Cancelar</a>
                                  </form>
                               </div>
                            </div>
@@ -213,13 +227,8 @@
                                  </div>
                               </div>
                               <div class="iq-card-body">
-                                 <form id="pass_form">
-                                    <div class="form-group">
-                                       <label for="cpass">Contraseña Actual:</label>
-                                       <a href="#" class="float-right">¿Olvidaste tu Contraseña?</a>
-                                       <input type="Password"  class="form-control Password1" id="cpass" value="">
-                                       <span class="fa fa-fw fa-eye password-icon show-password"></span>
-                                    </div>
+                                 <form id="pass_form" action="/DWprojectAdmin/update_password" method="POST">
+                                   
                                     <div class="form-group ">
                                        <label for="npass">Nueva Contraseña:</label>
                                        <input type="Password" name="pass" class="form-control Password2" id="npass" value="">
@@ -231,7 +240,7 @@
                                        <span class="fa fa-fw fa-eye password-icon show-password3"></span>
                                     </div>
                                     <button type="submit" class="btn btn-primary mr-2">Cambiar</button>
-                                    <a href="/DWprojectAdmin/" class="btn iq-bg-danger">Cancelar</a>
+                                    <a href="/DWprojectAdmin/" class="btn btn-primary">Cancelar</a>
                                  </form>
                               </div>
                            </div>
@@ -246,22 +255,7 @@
 
 </div>
 
-<?php
-         if (isset($GLOBALS['error'])) 
-         { 
-                    
-            echo " <script>
-                     toastr.".$GLOBALS['type']."('".$GLOBALS['error']."','STREAMING MOVIES',{
-                       'closeButton': true,
-                       'preventDuplicates': false,
-                       'progressBar': false,
-                       'positionClass': 'toast-bottom-full-width'
-                      });
-                  </script>";
-           
-                  $GLOBALS['error'] = "";
-          }
-   ?>              
+
    <?php require_once("global/footer.php") ?>
 </body>
 

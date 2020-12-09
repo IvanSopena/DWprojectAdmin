@@ -650,7 +650,69 @@
             }
           });
         }
- 
+
+
+
+        /************************************************************
+         Data Table users Actions 
+         **************************************************************/
+        $("#tabla_u").on("click", "#edit", function () {
+          let thisrow = $(this).closest("tr");
+          let dato = thisrow.find("td:eq(0)").text();
+          let tipo = $('#titulo').text();
+
+          switch(tipo) {
+            case "Listado de Usuarios":
+              window.location.href = "/DWprojectAdmin/details" + "?id=" + dato;
+              break;
+            case "Listado de Peliculas":
+              // code block
+              break;
+            case "Listado de Series":
+                // code block
+              break;
+            case "Listado de Categorias":
+                // code block
+              break;
+            case "Listado de Estados":
+                  // code block
+              break;
+            case "Tu correo":
+                  // code block
+              break;
+          }
+
+          
+        });
+        $("#tabla_u").on("click", "#del", function () {
+          let thisrow = $(this).closest("tr");
+          let dato = thisrow.find("td:eq(0)").text();
+          let tipo = $('#titulo').text();
+
+          switch(tipo) {
+            case "Listado de Usuarios":
+              window.location.href = "/DWprojectAdmin/delete_user" + "?id=" + dato;
+              break;
+              case "Listado de Peliculas":
+                // code block
+                break;
+              case "Listado de Series":
+                  // code block
+                break;
+              case "Listado de Categorias":
+                  // code block
+                break;
+              case "Listado de Estados":
+                    // code block
+                break;
+              case "Tu correo":
+                    // code block
+                break;
+            }
+
+          
+          
+        });
 
       /*---------------------------------------------------------------------
       image-upload
@@ -810,7 +872,70 @@
         },
 
        }
-			} );
+      } );
+
+      $("#user_form").validate({
+        rules: {
+          nombre:{
+            required: true,
+            minlength: 2
+          },
+          apellido:{
+            required: true,
+            minlength: 2
+          },
+          email:{
+            required: true,
+            email: true
+          },
+          
+          date: {
+            required: true
+          },
+          
+          plan:{
+            required: true
+          },
+          pais:{
+            required: true,
+            minlength: 2
+          },
+          activo:{
+            required: true
+          }
+          
+        },
+        messages: {
+          nombre: {
+            required: "El campo Nombre es obligatorio",
+            minlength: "El campo de Nombre no puede ser inferior a 2 caracteres"
+          },
+          apellido: {
+            required: "El campo Apellidos es obligatorio",
+            minlength: "El campo de Apellidos no puede ser inferior a 2 caracteres"
+          },
+          email: "Debe poner una dirección de correo electronico valida",
+          pais: {
+            required: "El campo Pais es obligatorio",
+            minlength: "El campo de Pais no puede ser inferior a 2 caracteres"
+          },
+          date: {
+            required: "El campo Fecha de Nacimiento es obligatorio"
+          },
+          
+          plan: {
+            required: "<br/>Debe elegir el plan del cliente."
+          },
+          activo: {
+            required: "<br/>Debe elegir el estado."
+          },
+          
+        },
+      
+      
+      });
+      
+
 
   });
   

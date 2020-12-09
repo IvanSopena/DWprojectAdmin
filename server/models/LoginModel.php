@@ -30,13 +30,21 @@ class LoginModel
             if ($GLOBALS['sq']->geterrors() == true) {
                 $GLOBALS['error']= $GLOBALS['sq']->getClsLastError();
                 $GLOBALS['type']="warning";
+
+               
+
                 $this->setView("login");
                 return;
             } 
             else 
             {
+                /* setcookie("Foto", $GLOBALS['sq']->getfoto(), 0, "/"); 
+                setcookie("Id", $GLOBALS['sq']->getMAppUserId(), 0, "/"); */
+
                 session_start();
-                $_SESSION["user"] = $GLOBALS['sq']->getMAppUserId();              
+                $_SESSION["user"] = $GLOBALS['sq']->getMAppUserId(); 
+               
+                         
                 $this->setView("dashboard");
                 return;
             }

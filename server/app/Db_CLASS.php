@@ -191,6 +191,8 @@ class Db_CLASS {
             $this->setMRealUserName($result['Usuario']);
             $this->setMAppUserId($result['Id']);
             $this->setfoto($result['Photo']); 
+
+            setcookie("Foto", $result['Photo'], 0, "/"); 
         }
             
     }
@@ -222,8 +224,8 @@ class Db_CLASS {
             $this->setMAppUserId($result['Id']);
             $this->setfoto($result['Photo']); 
             
-            setcookie("Foto", $result['Photo'], 0, "/"); 
-            setcookie("Id", $result['Id'], 0, "/");
+             /* setcookie("Foto", $result['Photo'],time()+3600, "", "localhost");  */
+            /*setcookie("Id", $result['Id']); */
             
             $AppPwd = $GLOBALS['security']->decrypt($result['Pass'], strtoupper($AppUser)); 
             
@@ -262,7 +264,7 @@ class Db_CLASS {
             
             
         } catch (Exception $ex) {
-            $this->setClsLastError($ex);
+            $this->setClsLastError($ex->getMessage());
             $this->setDbLastSQL($SQL);
             $this->fallo_query = true;
             return;
