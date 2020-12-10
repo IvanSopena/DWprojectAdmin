@@ -10,7 +10,7 @@ class MenuModel
     {
     }
 
-
+     /********************************** Menu de Usuarios ********************************/
     public function Obtener_Usuarios()
     {
         try{
@@ -147,4 +147,6 @@ class MenuModel
             return;
         }
     }
+
+    /********************************** Menu de Categorias ********************************/
 }

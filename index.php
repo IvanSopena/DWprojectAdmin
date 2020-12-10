@@ -23,6 +23,8 @@ $security = new Security();
 
 $GLOBALS['sq']->connect_DB();
 
+
+/* Rutas Controlador principal */
 $router->add('/', function() {
     $GLOBALS['home']->index();
 });
@@ -31,13 +33,11 @@ $router->add('/logoff', function() {
     $GLOBALS['home']->logoff();
 });
 
-$router->add('/user', function() {
-    $GLOBALS['menu']->users();
-});
-
 $router->post('/login', function() {
     $GLOBALS['home']->login();
 });
+
+/* Rutas de Perfil */
 
 $router->post('/update_profile', function() {
     $GLOBALS['profile']->save();
@@ -51,6 +51,8 @@ $router->add('/profile', function() {
     $GLOBALS['profile']->profile();
 });
 
+
+/* Rutas de Menu */
 $router->get('/details', function() {
     $GLOBALS['menu']->detail_users();
 });
@@ -63,6 +65,21 @@ $router->post('/update_user', function() {
     $GLOBALS['menu']->update_users();
 });
 
+$router->add('/user', function() {
+    $GLOBALS['menu']->users();
+});
+
+$router->add('/add_category', function() {
+    $GLOBALS['menu']->add_category();
+});
+
+$router->add('/view_category', function() {
+    $GLOBALS['menu']->view_category();
+});
+
+
+
+/* Pagina no encontrada */
 $router->add('/.*', function () {
     require_once  'Server/views/404.php';
 });

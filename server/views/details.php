@@ -30,8 +30,25 @@
                         </div>
                      </div>
                      <div class="iq-card-body">
+
+
                         
-                        <?php require_once("layout/user_details.php") ?>
+                        <?php 
+                            switch ($titulo) {
+                              case "Editar Usuarios":
+                                 require_once("layout/user_details.php");
+                              break;
+                              case "Añadir Categoria":
+                                 require_once("layout/category_details.php");
+                              break;
+                              case "Editar Categoria":
+                                 require_once("layout/category_details.php");
+                              break;
+                              
+                          
+                          }
+
+                         ?>
                         
                      </div>
                   </div>

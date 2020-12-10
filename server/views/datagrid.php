@@ -55,7 +55,6 @@
                                             <?php
                                                 for($i = 0; $i < count($campos); ++$i) {
                                                     echo $campos[$i];
-                                           
                                                 }
                                             ?>
                                            

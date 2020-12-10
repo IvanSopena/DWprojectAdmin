@@ -378,16 +378,21 @@ Buttons
 .btn-outline-light.disabled, .btn-outline-light:disabled { color: var(--iq-light); background-color: transparent; }
 .btn-outline-dark.disabled, .btn-outline-dark:disabled { color: var(--iq-dark); background-color: transparent; }
 
-/****Validate labels*******/
+/*----------------------------------------------
+Validate Labels
+------------------------------------------------*/
 label.error{color: var(--iq-primary);display: none; }
 
 /*----------------------------------------------
 Password_Options
 ------------------------------------------------*/
-.password-icon {
-    float: right;
-    position: relative;
-    margin: -25px 172px 0 0;
-    cursor: pointer;
+.password-icon {float: right;position: relative;margin: -25px 172px 0 0;cursor: pointer;
 }
 
+/*----------------------------------------------
+Color Options
+------------------------------------------------*/
+.option_primary{color: var(--iq-primary);}
+.option_info{color: var(--iq-info);}
+.option_success{color: var(--iq-success); }
+.option_warning{color: var(--iq-warning); }

@@ -27,14 +27,14 @@
                                   $resultado = $modelo->search_messages($GLOBALS["sq"]->getMAppUserId());
                                   if($resultado->rowcount() === 0){
                                      echo "  <a href='#' class='search-toggle iq-waves-effect text-gray rounded'>
-                                                <i class='fa fa-envelope'></i>               
+                                                <i class='fa fa-bell'></i>               
                                              </a>";
                                   }else{
                                      
                                      while ($dato = $resultado->fetch()){
                                         echo "
                                         <a href='#' class='search-toggle iq-waves-effect text-gray rounded'>
-                                            <i class='fa fa-envelope'></i>
+                                            <i class='fa fa-bell'></i>
                                             <span class='bg-primary dots'></span>                         
                                         </a>
                                         <div class='iq-sub-dropdown'>
