@@ -3,7 +3,7 @@
                <ul id="iq-sidebar-toggle" class="iq-menu">
                   <li class="active active-menu"><a href="/DWprojectAdmin/" class="iq-waves-effect"><i class="fa fa-home iq-arrow-left"></i><span>Home</span></a></li>
                   
-                  <li><a href="comment.html" class="iq-waves-effect"><i class="ri-mail-open-fill"></i><span>Tu Correo</span></a></li> 
+                  <!-- <li><a href="comment.html" class="iq-waves-effect"><i class="ri-mail-open-fill"></i><span>Tu Correo</span></a></li>  -->
                   <li><a href="/DWprojectAdmin/user" class="iq-waves-effect"><i class="fa fa-users"></i><span>Usuarios</span></a></li>
                   <li>
                      <a href="#category" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="fa fa-list-ul"></i><span>Categorias</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>

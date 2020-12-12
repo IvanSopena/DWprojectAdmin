@@ -290,7 +290,7 @@ class MenuController extends Controlador
 
         $model = $this->modelo('MoviesModel');
 
-        $datos = $model->Obtener_peliculas();
+        $datos = $model->Obtener_peliculas(1);
         $escritura = "";
 
         while ($dato = $datos->fetch()){
@@ -314,8 +314,8 @@ class MenuController extends Controlador
                        <div class='flex align-items-center list-user-action'>
                            <a class='iq-bg-success' id='edit' data-toggle='tooltip' data-placement='top' title='' data-original-title='Editar' href='#'> 
                                <i class='ri-pencil-line'></i></a>
-                           <a class='iq-bg-primary' id='del' data-toggle='tooltip' data-placement='top' title='' data-original-title='Eliminar' href='#'>
-                               <i class='ri-delete-bin-line'></i></a>
+                           <a class='iq-bg-primary' id='del' data-toggle='tooltip' data-placement='top' title='' data-original-title='Desactivar' href='#'>
+                               <i class='fa fa-ban'></i></a>
                        </div>
                    </td>
                    </tr>";         
@@ -332,6 +332,66 @@ class MenuController extends Controlador
         $this->vista_grid('details', '','',"Añadir Nueva Pelicula","");
     }
 
+    public function delete_movies()
+    {
+        $model = $this->modelo('MoviesModel');
+        $model->delete_movie($_GET["id"]);
+        
+
+        $this->view_movies();
+    }
+
+    public function edit_movie()
+    {
+        session_start();
+        $GLOBALS['sq']->refrescar_credenciales($_SESSION["user"]);
+        $model = $this->modelo('MoviesModel');
+        $datos = $model->data_movie($_GET["id"]);
+        
+        $this->vista_grid('details', $datos,'',"Editar Pelicula","");
+    }
+
+    public function add_movies()
+    {
+        $model = $this->modelo('MoviesModel');
+
+        $titulo = $_POST["nombre"];
+        $id = $_POST["id"];
+        $trailler = $_POST["trailler"];
+        $categoria = $_POST["cat"];
+        $estado = $_POST["st"];
+        $sinopsis = $_POST["Sinopsis"];
+        $cover = "/public/img/movies/". $_POST["cover"];
+        $detalle = $_POST["detalles"];
+        $publico = $_POST["publicos"];
+        $duracion = $_POST["duracion"];
+
+        $model->new_movie($titulo,$id,$trailler,$categoria,$estado,$sinopsis,$cover,$detalle,$publico,$duracion,1);
+
+        $this->view_movies();
+    }
+
+    public function update_movies()
+    {
+        $model = $this->modelo('MoviesModel');
+
+        $titulo = $_POST["nombre"];
+        $id = $_POST["id"];
+        $trailler = $_POST["trailler"];
+        $categoria = $_POST["cat"];
+        $estado = $_POST["st"];
+        $sinopsis = $_POST["Sinopsis"];
+        $detalle = $_POST["detalles"];
+        $publico = $_POST["publicos"];
+        $duracion = $_POST["duracion"];
+        $activo = $_POST["activo"];
+      
+        $model->movies_update($titulo,$id,$trailler,$categoria,$estado,$sinopsis,$detalle,$publico,$duracion,$activo);
+        
+        $datos = $model->data_movie($id);
+        $this->vista_grid('details', $datos,'',"Editar Pelicula","");
+    }
+
     /********************************** Menu Series ********************************/
     public function view_series()
     {
@@ -346,7 +406,7 @@ class MenuController extends Controlador
 
         $model = $this->modelo('MoviesModel');
 
-        $datos = $model->Obtener_series();
+        $datos = $model->Obtener_peliculas(2);
         $escritura = "";
 
         while ($dato = $datos->fetch()){
@@ -370,13 +430,13 @@ class MenuController extends Controlador
                        <div class='flex align-items-center list-user-action'>
                            <a class='iq-bg-success' id='edit' data-toggle='tooltip' data-placement='top' title='' data-original-title='Editar' href='#'> 
                                <i class='ri-pencil-line'></i></a>
-                           <a class='iq-bg-primary' id='del' data-toggle='tooltip' data-placement='top' title='' data-original-title='Eliminar' href='#'>
-                               <i class='ri-delete-bin-line'></i></a>
+                           <a class='iq-bg-primary' id='del' data-toggle='tooltip' data-placement='top' title='' data-original-title='Desactivar' href='#'>
+                           <i class='fa fa-ban'></i></a>
                        </div>
                    </td>
                    </tr>";         
         }
-		$this->vista_grid('datagrid', $escritura,$campos,"Listado de Pelicuas","4");
+		$this->vista_grid('datagrid', $escritura,$campos,"Listado de Pelicuas","5");
     }
     public function details_series()
     {
@@ -385,6 +445,65 @@ class MenuController extends Controlador
        
         
         $this->vista_grid('details', '','',"Añadir Nueva Serie","");
+    }
+    public function delete_series()
+    {
+        $model = $this->modelo('MoviesModel');
+        $model->delete_movie($_GET["id"]);
+        
+
+        $this->view_series();
+    }
+
+    public function edit_serie()
+    {
+        session_start();
+        $GLOBALS['sq']->refrescar_credenciales($_SESSION["user"]);
+        $model = $this->modelo('MoviesModel');
+        $datos = $model->data_movie($_GET["id"]);
+        
+        $this->vista_grid('details', $datos,'',"Editar Serie","");
+    }
+
+    public function add_series()
+    {
+        $model = $this->modelo('MoviesModel');
+
+        $titulo = $_POST["nombre"];
+        $id = $_POST["id"];
+        $trailler = $_POST["trailler"];
+        $categoria = $_POST["cat"];
+        $estado = $_POST["st"];
+        $sinopsis = $_POST["Sinopsis"];
+        $cover = "/public/img/movies/". $_POST["cover"];
+        $detalle = $_POST["detalles"];
+        $publico = $_POST["publicos"];
+        $duracion = $_POST["duracion"];
+
+        $model->new_movie($titulo,$id,$trailler,$categoria,$estado,$sinopsis,$cover,$detalle,$publico,$duracion,2);
+
+        $this->view_series();
+    }
+
+    public function update_series()
+    {
+        $model = $this->modelo('MoviesModel');
+
+        $titulo = $_POST["nombre"];
+        $id = $_POST["id"];
+        $trailler = $_POST["trailler"];
+        $categoria = $_POST["cat"];
+        $estado = $_POST["st"];
+        $sinopsis = $_POST["Sinopsis"];
+        $detalle = $_POST["detalles"];
+        $publico = $_POST["publicos"];
+        $duracion = $_POST["duracion"];
+        $activo = $_POST["activo"];
+      
+        $model->movies_update($titulo,$id,$trailler,$categoria,$estado,$sinopsis,$detalle,$publico,$duracion,$activo);
+        
+        $datos = $model->data_movie($id);
+        $this->vista_grid('details', $datos,'',"Editar Serie","");
     }
 }
    

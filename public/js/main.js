@@ -665,8 +665,11 @@
             window.location.href = "/DWprojectAdmin/details" + "?id=" + dato;
            }
            if(tipo == 4){//Peliculas
+            window.location.href = "/DWprojectAdmin/edit_movies" + "?id=" + dato;
            }
-           if(tipo == 5){}
+           if(tipo == 5){
+            window.location.href = "/DWprojectAdmin/edit_series" + "?id=" + dato;
+           }
            if(tipo == 2){ //Categorias
             window.location.href = "/DWprojectAdmin/edit_category" + "?id=" + dato;
            }
@@ -687,8 +690,11 @@
             window.location.href = "/DWprojectAdmin/delete_user" + "?id=" + dato;
            }
            if(tipo == 4){//Peliculas
+            window.location.href = "/DWprojectAdmin/delete_movies" + "?id=" + dato;
            }
-           if(tipo == 5){} //Series
+           if(tipo == 5){
+            window.location.href = "/DWprojectAdmin/delete_series" + "?id=" + dato;
+           } //Series
            if(tipo == 2){
             window.location.href = "/DWprojectAdmin/delete_category" + "?id=" + dato;
            }
@@ -701,29 +707,7 @@
           
         });
 
-      /*---------------------------------------------------------------------
-      image-upload
-      -----------------------------------------------------------------------*/
-
-      $('.form_gallery-upload').on('change', function() {
-          var length = $(this).get(0).files.length;
-          var galleryLabel  = $(this).attr('data-name');
-
-          if( length > 1 ){
-            $(galleryLabel).text(length + " files selected");
-          } else {
-            $(galleryLabel).text($(this)[0].files[0].name);
-          }
-        });
-
- /*---------------------------------------------------------------------
-    video
-      -----------------------------------------------------------------------*/
-      $(document).ready(function(){
-      $('.form_video-upload input').change(function () {
-        $('.form_video-upload p').text(this.files.length + " file(s) selected");
-      });
-    });
+     
         /*---------------------------------------------------------------------
         Button 
         -----------------------------------------------------------------------*/
@@ -963,6 +947,80 @@
             required: "El campo Nombre es obligatorio",
             minlength: "El campo de Nombre no puede ser inferior a 2 caracteres"
           }
+        },
+      });
+
+      $("#movies_form").validate({
+        rules: {
+          nombre:{
+            required: true,
+            minlength: 2
+          },
+          trailler:{
+            required: true,
+            url: true
+          },
+          cat:{
+            required: true
+          },
+          st:{
+            required: true
+          },
+          Sinopsis:{
+            required: true,
+            minlength: 5//,
+            //maxlength:100
+          
+          },
+          detalles:{
+            required: true,
+            minlength: 2
+          },
+          publicos:{
+            required: true,
+            minlength: 1
+          },
+          duracion:{
+            required: true,
+            minlength: 1
+          },
+          /* cover:{
+            required: true
+          } */
+        },
+        messages: {
+          nombre: {
+            required: "El campo Titulo es obligatorio",
+            minlength: "El campo de Titulo no puede ser inferior a 2 caracteres"
+          },
+          trailler: "Debe poner una dirección url valida",
+          cat: {
+            required: "<br/>Debe elegir una Categoria para indicar la categoria."
+          },
+          st: {
+            required: "<br/>Debe elegir un Estado para indicar la categoria."
+          },
+          Sinopsis: {
+            required: "Este campo es obligatorio,por favor introduce la sinopsis. MAX 100 caracteres",
+             minlength: "Este campo no puede ser inferior a 5 caracteres."/* ,
+             maxlength: "Se han excedido los 100 caracteres." */
+          },
+          detalles: {
+            required: "El campo Titulo es obligatorio",
+            minlength: "El campo de Titulo no puede ser inferior a 2 caracteres"
+          },
+          publicos: {
+            required: "El campo Titulo es obligatorio",
+            minlength: "El campo de Titulo no puede ser inferior a 2 caracteres"
+          },
+          duracion: {
+            required: "El campo Titulo es obligatorio",
+            minlength: "El campo de Titulo no puede ser inferior a 2 caracteres"
+          },
+          /* cover: {
+            required: "Por favor introduce una portada.",
+            
+          } */
         },
       });
 

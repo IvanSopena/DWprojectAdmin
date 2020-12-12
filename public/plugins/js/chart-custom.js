@@ -1781,6 +1781,34 @@ $(document).ready(function() {
     }); 
 });
 
+/*---------------------------------------------------------------------
+    Cover Edit
+-----------------------------------------------------------------------*/
+
+$(document).ready(function() {
+
+    
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.Cover').attr('src', e.target.result);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+
+     $(".Cover-upload").on('change', function(){
+        readURL(this);
+    });
+    
+    $(".upload-Cover").on('click', function() {
+       $(".Cover-upload").click();
+    }); 
+});
 
 // top chart 1
  if(jQuery('#view-chart-01').length){

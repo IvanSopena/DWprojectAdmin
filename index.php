@@ -50,6 +50,8 @@ $router->post('/update_password', function() {
 $router->add('/profile', function() {
     $GLOBALS['profile']->profile();
 });
+/************  Correo **********************/
+
 
 
 /************* Rutas de Menu ****************/
@@ -128,6 +130,22 @@ $router->add('/new_movie', function() {
     $GLOBALS['menu']->details_movies();
 });
 
+$router->get('/delete_movies', function() {
+    $GLOBALS['menu']->delete_movies();
+});
+
+$router->get('/edit_movies', function() {
+    $GLOBALS['menu']->edit_movie();
+}); 
+
+$router->post('/update_movies', function() {
+    $GLOBALS['menu']->update_movies();
+});
+
+$router->post('/add_movies', function() {
+    $GLOBALS['menu']->add_movies();
+});
+
 /** Series **/
 $router->add('/view_series', function() {
     $GLOBALS['menu']->view_series();
@@ -135,6 +153,22 @@ $router->add('/view_series', function() {
 
 $router->add('/new_series', function() {
     $GLOBALS['menu']->details_series();
+});
+
+$router->get('/delete_series', function() {
+    $GLOBALS['menu']->delete_series();
+});
+
+ $router->get('/edit_series', function() {
+    $GLOBALS['menu']->edit_serie();
+}); 
+
+$router->post('/update_series', function() {
+    $GLOBALS['menu']->update_series();
+});
+
+$router->post('/add_series', function() {
+    $GLOBALS['menu']->add_series();
 });
 
 

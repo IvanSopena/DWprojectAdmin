@@ -22,6 +22,48 @@ class MenuModel
         } 
     }
 
+    public function rellena_estado($variable){
+        $sql = "";
+        $sql = "Select IdStatus,StatusDesc from " . $GLOBALS['sq']->getTableOwner() . ".StatusMovie";
+        $result = $GLOBALS['sq']->DbSelect_tablas($sql);
+
+        $devolver ="";
+        if ($GLOBALS['sq']->fallo_query == false) {
+
+            while ($dato = $result->fetch()){
+                if($dato["StatusDesc"] === $variable){
+                    //$devolver ="<option value =''>Elige un estado</option>";
+                    $devolver = $devolver . "<option value ='".$dato["IdStatus"]."' selected='selected'>".$dato["StatusDesc"]."</option>";
+                }else{
+                    //$devolver ="<option select '' value =''>Elige un estado</option>";
+                    $devolver = $devolver . "<option value ='".$dato["IdStatus"]."'>".$dato["StatusDesc"]."</option>";
+                }
+            }
+            return $devolver;
+        } 
+    }
+
+    public function rellena_cat($variable){
+        $sql = "";
+        $sql = "Select IdCat,CatDesc from " . $GLOBALS['sq']->getTableOwner() . ".CategoryMovie";
+        $result = $GLOBALS['sq']->DbSelect_tablas($sql);
+
+        $devolver ="";
+        if ($GLOBALS['sq']->fallo_query == false) {
+
+            while ($dato = $result->fetch()){
+                if($dato["CatDesc"] === $variable){
+                    //$devolver ="<option value =''>Elige un estado</option>";
+                    $devolver = $devolver . "<option value ='".$dato["IdCat"]."' selected='selected'>".$dato["CatDesc"]."</option>";
+                }else{
+                    //$devolver ="<option select '' value =''>Elige un estado</option>";
+                    $devolver = $devolver . "<option value ='".$dato["IdCat"]."'>".$dato["CatDesc"]."</option>";
+                }
+            }
+            return $devolver;
+        } 
+    }
+
      /********************************** Menu de Usuarios ********************************/
     public function Obtener_Usuarios()
     {
@@ -205,20 +247,7 @@ class MenuModel
 
         $sql = "";
 
-      /*   $sql = "Select max(IdCat) +1 as id from " . $GLOBALS['sq']->getTableOwner() . ".CategoryMovie";
-        $result = $GLOBALS['sq']->DB_Select($sql);
-
-        if ($GLOBALS['sq']->fallo_query == true) {
-
-            $GLOBALS['error']= "Fallo al generar el nuevo usuario de la aplicación. ";
-            $GLOBALS['type']="error";
-            
-            return;
-        } 
-
-        else
-        { */
-            /* $Id = $result['id']; */
+      
             $sql = "Insert into " . $GLOBALS['sq']->getTableOwner() . ".CategoryMovie (IdCat,CatDesc,Icon,Color) ";
             $sql = $sql. "Values('". $Id ."','". $nombre ."','". $Ico ."','". $color ."')";
 
@@ -231,7 +260,6 @@ class MenuModel
                 return;
             } 
             
-       /*  } */
     }
 
     public function category_data($id)

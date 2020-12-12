@@ -21,7 +21,7 @@
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto navbar-list">
                         <li class="nav-item nav-icon ">
-                          <?php
+                          <?php 
                                 require_once('server/models/UserModel.php');
                                   $modelo = new UserModel();
                                   $resultado = $modelo->search_messages($GLOBALS["sq"]->getMAppUserId());
