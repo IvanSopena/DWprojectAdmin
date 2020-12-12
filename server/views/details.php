@@ -38,11 +38,29 @@
                               case "Editar Usuarios":
                                  require_once("layout/user_details.php");
                               break;
-                              case "Añadir Categoria":
+                              case "Añadir Nueva Categoria":
                                  require_once("layout/category_details.php");
                               break;
                               case "Editar Categoria":
                                  require_once("layout/category_details.php");
+                              break;
+                              case "Añadir Nuevo Estado":
+                                 require_once("layout/status_details.php");
+                              break;
+                              case "Editar Estado":
+                                 require_once("layout/status_details.php");
+                              break;
+                              case "Añadir Nueva Pelicula":
+                                 require_once("layout/movies_detail.php");
+                              break;
+                              case "Editar Pelicula":
+                                 require_once("layout/movies_detail.php");
+                              break;
+                              case "Añadir Nueva Serie":
+                                 require_once("layout/detail_series.php");
+                              break;
+                              case "Editar Serie":
+                                 require_once("layout/detail_series.php");
                               break;
                               
                           

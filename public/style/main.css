@@ -328,7 +328,7 @@ body.sidebar-main .content-page { margin-left: 80px; }
 .form_gallery input { position: absolute; left: -9999px; opacity: 0; z-index: 1; }
 .form_input { width: 100%; background-color: rgba(210, 201, 255, 0.04); border: 1px solid transparent; height: 46px; position: relative; color: var(--iq-white); font-size: 16px; width: 100%; -webkit-border-radius: 6px; border-radius: 6px; padding: 0 20px; }
 .form_textarea { border: 1px solid transparent; display: block; height: 136px; position: relative; color: var(--iq-white); font-size: 16px; width: 100%; padding: 15px 20px; letter-spacing: 0.4px; resize: none; background-color: rgba(210, 201, 255, 0.04); -webkit-border-radius: 6px; border-radius: 6px; }
-.form_video-upload { position: absolute; top: 0; left: 0; right: 0; background: var(--iq-body-bg); }
+.form_video-upload { position: absolute; top: 0; left: 0; right: 0; height: 392px; background: var(--iq-body-bg); }
 .form_video-upload p { width: 100%; height: 100%; text-align: center; line-height: 310px; color: var(--iq-white); }
 .form_video-upload input { position: absolute; margin: 0; padding: 0; width: 100%; height: 100%; outline: none; opacity: 0; }
 .radio-box label { color: var(--iq-body-text); }

@@ -105,5 +105,91 @@ class MoviesModel
 
     }
 
+    public function Obtener_peliculas()
+    {
+        try{
+
+            $sql = ""; 
+            if ($GLOBALS['sq']->getIsOpen() === false) {
+                $GLOBALS['sq']->connect_DB();
+            }
+
+            $sql = "Select al1.IdMovie,al1.Name,al1.Cover,
+            al4.StatusDesc,al2.CatDesc,al1.Duration,al1.Age,al1.Active 
+            from " . $GLOBALS['sq']->getTableOwner() . ".CategoryMovie as al2,
+            " . $GLOBALS['sq']->getTableOwner() . ".Movies as al1,
+            " . $GLOBALS['sq']->getTableOwner() . ".StatusMovie as al4
+
+            where
+            al1.cat = al2.IdCat and al1.type=1 and
+            al1.Status = al4.IdStatus";   
+    
+            $result = $GLOBALS['sq']->DbSelect_tablas($sql);
+    
+            if ($GLOBALS['sq']->fallo_query == false) {
+    
+                return $result;      
+            }
+            else{
+                $GLOBALS['error']= "Error en la cargar la información.";
+                $GLOBALS['type']="warning";
+                $result = "";
+                return $result;
+            }
+
+
+        }
+        catch(Exception $ex)
+        {
+            $GLOBALS['error']= $ex->getmessage();
+            $GLOBALS['type']="warning";
+            $result = "";
+            return $result;
+        }
+    }
+
+    public function Obtener_series()
+    {
+        try{
+
+            $sql = ""; 
+            if ($GLOBALS['sq']->getIsOpen() === false) {
+                $GLOBALS['sq']->connect_DB();
+            }
+
+            $sql = "Select al1.IdMovie,al1.Name,al1.Cover,
+            al4.StatusDesc,al2.CatDesc,al1.Duration,al1.Age,al1.Active 
+            from " . $GLOBALS['sq']->getTableOwner() . ".CategoryMovie as al2,
+            " . $GLOBALS['sq']->getTableOwner() . ".Movies as al1,
+            " . $GLOBALS['sq']->getTableOwner() . ".StatusMovie as al4
+
+            where
+            al1.cat = al2.IdCat and al1.type=2 and
+            al1.Status = al4.IdStatus";   
+    
+            $result = $GLOBALS['sq']->DbSelect_tablas($sql);
+    
+            if ($GLOBALS['sq']->fallo_query == false) {
+    
+                return $result;      
+            }
+            else{
+                $GLOBALS['error']= "Error en la cargar la información.";
+                $GLOBALS['type']="warning";
+                $result = "";
+                return $result;
+            }
+
+
+        }
+        catch(Exception $ex)
+        {
+            $GLOBALS['error']= $ex->getmessage();
+            $GLOBALS['type']="warning";
+            $result = "";
+            return $result;
+        }
+    }
+
 }
 

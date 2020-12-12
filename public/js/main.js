@@ -659,58 +659,45 @@
         $("#tabla_u").on("click", "#edit", function () {
           let thisrow = $(this).closest("tr");
           let dato = thisrow.find("td:eq(0)").text();
-          let tipo = $('#titulo').text();
-
-          switch(tipo) {
-            case "Listado de Usuarios":
-              window.location.href = "/DWprojectAdmin/details" + "?id=" + dato;
-              break;
-            case "Listado de Peliculas":
-              // code block
-              break;
-            case "Listado de Series":
-                // code block
-              break;
-            case "Listado de Categorias":
-                // code block
-              break;
-            case "Listado de Estados":
-                  // code block
-              break;
-            case "Tu correo":
-                  // code block
-              break;
-          }
+          var tipo = $('#titulo').val();
+         
+           if(tipo == 1){ //Usuarios
+            window.location.href = "/DWprojectAdmin/details" + "?id=" + dato;
+           }
+           if(tipo == 4){//Peliculas
+           }
+           if(tipo == 5){}
+           if(tipo == 2){ //Categorias
+            window.location.href = "/DWprojectAdmin/edit_category" + "?id=" + dato;
+           }
+           if(tipo == 3){ //Estados
+            window.location.href = "/DWprojectAdmin/edit_status" + "?id=" + dato;
+           }
+           if(tipo == 6){}
+          
 
           
         });
         $("#tabla_u").on("click", "#del", function () {
           let thisrow = $(this).closest("tr");
           let dato = thisrow.find("td:eq(0)").text();
-          let tipo = $('#titulo').text();
+          var tipo = $('#titulo').val();
+         
+           if(tipo == 1){
+            window.location.href = "/DWprojectAdmin/delete_user" + "?id=" + dato;
+           }
+           if(tipo == 4){//Peliculas
+           }
+           if(tipo == 5){} //Series
+           if(tipo == 2){
+            window.location.href = "/DWprojectAdmin/delete_category" + "?id=" + dato;
+           }
+           if(tipo == 3){
+            window.location.href = "/DWprojectAdmin/delete_status" + "?id=" + dato;
+           }
+           if(tipo == 6){} //Mails
 
-          switch(tipo) {
-            case "Listado de Usuarios":
-              window.location.href = "/DWprojectAdmin/delete_user" + "?id=" + dato;
-              break;
-              case "Listado de Peliculas":
-                // code block
-                break;
-              case "Listado de Series":
-                  // code block
-                break;
-              case "Listado de Categorias":
-                  // code block
-                break;
-              case "Listado de Estados":
-                    // code block
-                break;
-              case "Tu correo":
-                    // code block
-                break;
-            }
-
-          
+            
           
         });
 
@@ -934,7 +921,50 @@
       
       
       });
-      
+
+      $("#cat_form").validate({
+        rules: {
+          nombre:{
+            required: true,
+            minlength: 2
+          },
+          icono:{
+            required: true,
+            minlength: 2
+          },
+          Color:{
+            required: true
+          }
+        },
+        messages: {
+          nombre: {
+            required: "El campo Nombre es obligatorio",
+            minlength: "El campo de Nombre no puede ser inferior a 2 caracteres"
+          },
+          icono: {
+            required: "El campo Icono es obligatorio",
+            minlength: "El campo de Icono no puede ser inferior a 2 caracteres"
+          },
+          Color: {
+            required: "<br/>Debe elegir un color para indicar la categoria."
+          }
+        },
+      });
+
+      $("#status_form").validate({
+        rules: {
+          nombre:{
+            required: true,
+            minlength: 2
+          }
+        },
+        messages: {
+          nombre: {
+            required: "El campo Nombre es obligatorio",
+            minlength: "El campo de Nombre no puede ser inferior a 2 caracteres"
+          }
+        },
+      });
 
 
   });

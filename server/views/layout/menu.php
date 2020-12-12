@@ -15,16 +15,16 @@
                   <li>
                      <a href="#estados" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-bookmark-fill"></i><span>Estados</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                      <ul id="estados" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                        <li><a href="add-category.html"><i class="fa fa-plus"></i>Añadir Estado</a></li>
-                        <li><a href="category-list.html"><i class="fa fa-eye"></i>Listar Estados</a></li>
+                        <li><a href="/DWprojectAdmin/new_status"><i class="fa fa-plus"></i>Añadir Estado</a></li>
+                        <li><a href="/DWprojectAdmin/view_status"><i class="fa fa-eye"></i>Listar Estados</a></li>
                      </ul>
                   </li>
                   
                   <li>
                      <a href="#movie" class="iq-waves-effect collapsed" data-toggle="collapse" aria-expanded="false"><i class="ri-movie-2-line"></i><span>Peliculas</span><i class="ri-arrow-right-s-line iq-arrow-right"></i></a>
                      <ul id="movie" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                        <li><a href="add-movie.html"><i class="fa fa-plus"></i>Añadir</a></li>
-                        <li><a href="movie-list.html"><i class="fa fa-eye"></i>Listado</a></li>
+                        <li><a href="/DWprojectAdmin/new_movie"><i class="fa fa-plus"></i>Añadir</a></li>
+                        <li><a href="/DWprojectAdmin/view_movies"><i class="fa fa-eye"></i>Listado</a></li>
                      </ul>
                   </li>
                   <li>
@@ -33,8 +33,8 @@
                         class="ri-arrow-right-s-line iq-arrow-right"></i>
                      </a>
                      <ul id="show" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                        <li><a href="add-show.html"><i class="fa fa-plus"></i>Añadir</a></li>
-                        <li><a href="show-list.html"><i class="fa fa-eye"></i>Listado</a></li>
+                        <li><a href="/DWprojectAdmin/new_series"><i class="fa fa-plus"></i>Añadir</a></li>
+                        <li><a href="/DWprojectAdmin/view_series"><i class="fa fa-eye"></i>Listado</a></li>
                      </ul>
                   </li>
                  

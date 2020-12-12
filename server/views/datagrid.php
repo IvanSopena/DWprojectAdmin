@@ -43,7 +43,8 @@
                     <div class="iq-card">
                         <div class="iq-card-header d-flex justify-content-between">
                             <div class="iq-header-title">
-                                <h4 id="titulo" class="card-title"> <?php echo $titulo ?></h4>
+                                <h4 class="card-title"> <?php echo $titulo ?></h4>
+                                <input id="titulo" value = "<?php echo $valor ?>" hidden>
                             </div>
                         </div>
                         <div class="iq-card-body">

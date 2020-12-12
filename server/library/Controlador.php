@@ -26,7 +26,7 @@
 			
 		}
 		
-		public function vista_grid($vista, $datos,$campos = [],$titulo){
+		public function vista_grid($vista, $datos,$campos = [],$titulo,$valor){
 			//chequear si el archivo vista existe
 			if (file_exists('server/views/' . $vista . '.php')) {
 				require_once  'server/views/' . $vista . '.php';
