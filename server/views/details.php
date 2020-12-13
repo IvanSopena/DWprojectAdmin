@@ -62,6 +62,9 @@
                               case "Editar Serie":
                                  require_once("layout/detail_series.php");
                               break;
+                              case "Notifications":
+                                 require_once("layout/notifications.php");
+                              break;
                               
                           
                           }

@@ -51,8 +51,13 @@ $router->add('/profile', function() {
     $GLOBALS['profile']->profile();
 });
 /************  Correo **********************/
+$router->get('/show_notifications', function() {
+    $GLOBALS['home']->notifications();
+});
 
-
+$router->post('/read_notification', function() {
+    $GLOBALS['home']->read_notification();
+});
 
 /************* Rutas de Menu ****************/
 /** Usuarios **/

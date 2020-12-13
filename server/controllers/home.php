@@ -48,6 +48,29 @@ class Home extends Controlador
 		$GLOBALS['sq']->DbClose();	
 	}
 
+	public function notifications ()
+	{
+		session_start();
+        $GLOBALS['sq']->refrescar_credenciales($_SESSION["user"]);
+        $model = $this->modelo('UserModel');
+        $datos = $model->show_notifications($_GET["id"]);
+        
+        $this->vista_grid('details', $datos,'',"Notifications","");
+	}
+
+	public function read_notification ()
+	{
+		session_start();
+        $GLOBALS['sq']->refrescar_credenciales($_SESSION["user"]);
+		$model = $this->modelo('UserModel');
+		
+		$id = $_POST["id"];
+
+        $model->read_notifications($id);
+        
+		$this->vista('dashboard', '');
+	}
+
 	
 
 	

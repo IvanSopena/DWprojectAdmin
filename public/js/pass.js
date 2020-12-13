@@ -48,3 +48,9 @@ window.addEventListener("load", function () {
 
 });
 
+function myFunction(id) {
+    var dato = document.getElementById('id_message_'+id).value;
+    window.location.href = "/DWprojectAdmin/show_notifications" + "?id=" + dato;
+}
+
+

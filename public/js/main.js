@@ -676,9 +676,7 @@
            if(tipo == 3){ //Estados
             window.location.href = "/DWprojectAdmin/edit_status" + "?id=" + dato;
            }
-           if(tipo == 6){}
-          
-
+           
           
         });
         $("#tabla_u").on("click", "#del", function () {
@@ -701,13 +699,11 @@
            if(tipo == 3){
             window.location.href = "/DWprojectAdmin/delete_status" + "?id=" + dato;
            }
-           if(tipo == 6){} //Mails
-
-            
-          
+           
         });
 
-     
+    
+       
         /*---------------------------------------------------------------------
         Button 
         -----------------------------------------------------------------------*/

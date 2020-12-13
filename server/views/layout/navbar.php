@@ -31,9 +31,8 @@
                                              </a>";
                                   }else{
                                      
-                                     while ($dato = $resultado->fetch()){
-                                        echo "
-                                        <a href='#' class='search-toggle iq-waves-effect text-gray rounded'>
+                                     
+                                    echo "   <a href='#' class='search-toggle iq-waves-effect text-gray rounded'>
                                             <i class='fa fa-bell'></i>
                                             <span class='bg-primary dots'></span>                         
                                         </a>
@@ -42,22 +41,29 @@
                                                 <div class='iq-card-body p-0 '>
                                                     <div class='bg-primary p-3'>
                                                         <h5 class='mb-0 text-white'>Tienes nuevos mensajes<small class='badge  badge-light float-right pt-1'>". $resultado->rowcount() ."</small></h5>
-                                                    </div>
-                                                <a href='#' class='iq-sub-card'>
-                                                <div class='media align-items-center'>
-                                                        <div class='media-body ml-3'>
-                                                            <h6 class='mb-0 '>". $dato['emisor'] ."</h6> 
-                                                            <small class='float-left font-size-12'>". $dato['SendDate'] ."</small>
-                                                        </div>
-                                                    </div>
-                                                    </a>
-                                        
-                                                </div>
+                                                    </div>";
+                                                    $i=0;
+                                                    while ($dato = $resultado->fetch()){
+                                                    echo "        
+                                                        <a href='#' onclick='myFunction(".$i.")' class='iq-sub-card'>
+                                                        
+                                                            <div class='media align-items-center'>
+                                                                <div class='media-body ml-3'>
+                                                                    <h6 class='mb-0 '>". $dato['emisor'] ."</h6> 
+                                                                    <small class='float-left font-size-12'>". $dato['SendDate'] ."</small>
+                                                                    <input id='id_message_".$i."' hidden value ='". $dato['id'] ."'>
+                                                                </div>
+                                                            </div>
+                                                        </a>";
+                                                    $i=$i+1;
+                                                }
+                                                echo "  </div>
                                             </div>
                                         </div>";
-                                     }
+                                    
                                   }
                           ?>
+                          
                         </li>
                         <li class="line-height pt-3">
                             <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center">

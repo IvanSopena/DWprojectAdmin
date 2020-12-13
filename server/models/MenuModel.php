@@ -265,7 +265,7 @@ class MenuModel
     public function category_data($id)
     {
         try{
-
+ 
             $sql = ""; 
             if ($GLOBALS['sq']->getIsOpen() === false) {
                 $GLOBALS['sq']->connect_DB();

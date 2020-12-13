@@ -29,7 +29,7 @@ class UserModel
                 $GLOBALS['sq']->connect_DB();
             }
 
-            $sql = "Select emisor,SendDate,Message
+            $sql = "Select id,emisor,SendDate,Message
             from " . $GLOBALS['sq']->getTableOwner() . ".AdminMessages
             where
             Receptor = '".$Id ."' and IsRead = '0'"; 
@@ -150,6 +150,70 @@ class UserModel
             $GLOBALS['error']= $ex->getMessage();
             $GLOBALS['type']="error";
         } 
+    }
+
+    public function show_notifications($id){
+        try{
+
+            $sql = ""; 
+            if ($GLOBALS['sq']->getIsOpen() === false) {
+                $GLOBALS['sq']->connect_DB();
+            }
+
+            $sql = "Select id,emisor,SendDate,Message
+            from " . $GLOBALS['sq']->getTableOwner() . ".AdminMessages
+            where
+            id = '".$id ."'"; 
+    
+            $result = $GLOBALS['sq']->Db_Select($sql);
+    
+            if ($GLOBALS['sq']->fallo_query == false) {
+    
+                return $result;      
+            }
+            else{
+                $GLOBALS['error']= "Imposible abrir las notificaciones.";
+                $GLOBALS['type']="warning";
+                $result = "";
+                return $result;
+            }
+
+
+        }
+        catch(Exception $ex)
+        {
+            $GLOBALS['error']= $GLOBALS['sq']->getClsLastError();
+            $GLOBALS['type']="warning";
+            $result = "";
+            return $result;
+        }
+    }
+
+    public function read_notifications($id)
+    {
+        try{
+            $sql="";
+
+            $sql = "Update " . $GLOBALS['sq']->getTableOwner() . ".AdminMessages set IsRead = '1'";
+            $sql = $sql. " where Id = '". $id ."'";
+    
+            $GLOBALS['sq']->DB_Execute($sql);
+    
+            if ($GLOBALS['sq']->fallo_query == true) {
+    
+                $GLOBALS['error']= "Error en la actualización, por favor vuelva a intentarlo ";
+                $GLOBALS['type']="warning";
+                
+                return;
+            } 
+           
+        }
+        catch(Exception $ex)
+        {
+            $GLOBALS['error']= $ex->getmessage();
+            $GLOBALS['type']="warning";
+            return;
+        }
     }
 
    /*  public function send_new_password ($user_mail,$new_password){
