@@ -87,7 +87,7 @@ class MoviesModel
                 return $result;      
             }
             else{
-                $GLOBALS['error']= $GLOBALS['sq']->getClsLastError();
+                $GLOBALS['error']=getmessage();
                 $GLOBALS['type']="warning";
                 $result = "";
                 return $result;
@@ -96,7 +96,7 @@ class MoviesModel
         }
         catch(Exception $ex)
         {
-            $GLOBALS['error']= $GLOBALS['sq']->getClsLastError();
+            $GLOBALS['error']=getmessage();
             $GLOBALS['type']="warning";
             $result = "";
             return $result;

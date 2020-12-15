@@ -472,8 +472,8 @@ class MenuController extends Controlador
         $titulo = $_POST["nombre"];
         $id = $_POST["id"];
         $trailler = $_POST["trailler"];
-        $categoria = $_POST["cat"];
-        $estado = $_POST["st"];
+        $categoria = $_POST["categoria"];
+        $estado = $_POST["estado"];
         $sinopsis = $_POST["Sinopsis"];
         $cover = "/public/img/movies/". $_POST["cover"];
         $detalle = $_POST["detalles"];

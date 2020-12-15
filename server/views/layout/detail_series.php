@@ -32,8 +32,8 @@
                 ?>
                 
                 </div>
-                <div name="cat" class="col-md-6  form-group">
-                    <select class="form-control" id="exampleFormControlSelect1">
+                <div  class="col-md-6  form-group">
+                    <select class="form-control" name="categoria" id="exampleFormControlSelect1">
                     <?php 
                     if($titulo === "Añadir Nueva Serie"){
                         
@@ -49,8 +49,8 @@
                     ?>
                     </select>
                 </div>
-                <div name="st" class="col-sm-6 form-group">
-                    <select class="form-control" id="exampleFormControlSelect2">
+                <div  class="col-sm-6 form-group">
+                    <select name="estado" class="form-control" id="exampleFormControlSelect2">
                     <?php 
                     if($titulo === "Añadir Nueva Serie"){
                         
@@ -66,7 +66,7 @@
                     ?>
                     </select>
                 </div>
-                <div name="sinopsis" class="col-12 form-group">
+                <div  class="col-12 form-group">
                     
                     <?php if($titulo === "Añadir Nueva Serie"){
                         echo " <textarea id='text' name='Sinopsis' rows='5' class='form-control' placeholder='Sinopsis'></textarea>";
