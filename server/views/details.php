@@ -65,6 +65,9 @@
                               case "Notifications":
                                  require_once("layout/notifications.php");
                               break;
+                              case "Enviar Notificaciones":
+                                 require_once("layout/notify.php");
+                              break;
                               
                           
                           }

@@ -8,6 +8,31 @@ class MenuController extends Controlador
 	{
     }
 
+    /*********************************Comentarios ************************** */
+    public function comments()
+    {
+        session_start();
+        $GLOBALS['sq']->refrescar_credenciales($_SESSION["user"]);
+       
+        
+        $this->vista_grid('details', '','',"Enviar Notificaciones","");
+    }
+
+    public function send_notification()
+    {
+        session_start();
+        $GLOBALS['sq']->refrescar_credenciales($_SESSION["user"]);
+        $model = $this->modelo('MenuModel');
+
+        $Nombre = $_POST["user"];
+        $Peli = $_POST["peli"];
+        $menssage = $_POST["message"];
+
+        $model->send_user_notify($Nombre,$Peli,$menssage,0);
+
+        $this->vista('dashboard', '');
+    }
+
     /********************************** Menu Usuarios ********************************/
     public function detail_users()
     {
@@ -492,8 +517,8 @@ class MenuController extends Controlador
         $titulo = $_POST["nombre"];
         $id = $_POST["id"];
         $trailler = $_POST["trailler"];
-        $categoria = $_POST["cat"];
-        $estado = $_POST["st"];
+        $categoria = $_POST["categoria"];
+        $estado = $_POST["estado"];
         $sinopsis = $_POST["Sinopsis"];
         $detalle = $_POST["detalles"];
         $publico = $_POST["publicos"];

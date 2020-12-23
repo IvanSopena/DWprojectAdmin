@@ -389,6 +389,9 @@ Password_Options
 .password-icon {float: right;position: relative;margin: -25px 172px 0 0;cursor: pointer;
 }
 
+.password-icon-login {float: right;position: relative;margin: -33px 29px 0 0;cursor: pointer;
+}
+
 /*----------------------------------------------
 Color Options
 ------------------------------------------------*/

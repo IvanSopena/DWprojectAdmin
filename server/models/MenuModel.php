@@ -64,6 +64,73 @@ class MenuModel
         } 
     }
 
+    public function rellena_user(){
+        $sql = "";
+        $sql = "Select al1.Id,CONCAT(al1.Nombre,' ', al1.Apellidos) as Usuario,al1.Email,al1.Pais,al1.Nacimiento,al2.DescPlan as Plan,al1.Activo,al1.Foto
+        from " . $GLOBALS['sq']->getTableOwner() . ".Users as al1 , " . $GLOBALS['sq']->getTableOwner() . ".MoviesPlan as al2 
+        where plan = IdPlan"; 
+        $result = $GLOBALS['sq']->DbSelect_tablas($sql);
+        $devolver ="";
+        if ($GLOBALS['sq']->fallo_query == false) {
+
+            while ($dato = $result->fetch()){
+               
+                $devolver = $devolver . "<option value ='".$dato["Id"]."' >".$dato["Usuario"]."</option>";
+
+            }
+            return $devolver;
+        } 
+    }
+
+    public function rellena_peli(){
+        $sql = "";
+        $sql = "Select al1.IdMovie,al1.Name,al1.Cover,
+            al4.StatusDesc,al2.CatDesc,al1.Duration,al1.Age,al1.Active 
+            from " . $GLOBALS['sq']->getTableOwner() . ".CategoryMovie as al2,
+            " . $GLOBALS['sq']->getTableOwner() . ".Movies as al1,
+            " . $GLOBALS['sq']->getTableOwner() . ".StatusMovie as al4
+
+            where
+            al1.cat = al2.IdCat  and
+            al1.Status = al4.IdStatus";    
+            $result = $GLOBALS['sq']->DbSelect_tablas($sql);
+        $devolver ="";
+        if ($GLOBALS['sq']->fallo_query == false) {
+
+            while ($dato = $result->fetch()){
+               
+                $devolver = $devolver . "<option value ='".$dato["Cover"]."'>".$dato["Name"]."</option>";
+
+            }
+            return $devolver;
+        } 
+    }
+
+
+
+    public function send_user_notify($Nombre,$Peli,$menssage,$emisor)
+    {
+        $sql = "";
+        
+        $Id = $this->obtener_id('IdNotify','Notifications');
+      
+        $sql = "Insert into " . $GLOBALS['sq']->getTableOwner() . ".Notifications (IdNotify,IdOwner,IdUser,Message,Read_Message,Cover) ";
+        $sql = $sql. "Values('". $Id['id'] ."','". $emisor ."','". $Nombre ."','". $menssage ."','0','". $Peli ."')";
+
+        $GLOBALS['sq']->DB_Execute($sql);
+
+        if ($GLOBALS['sq']->fallo_query == true) {
+
+            $GLOBALS['error']= "Fallo al generar el nuevo aviso para el usuario. ";
+            $GLOBALS['type']="error";
+            return;
+        } else{
+            $GLOBALS['error']= "Aviso generado correctamente. ";
+            $GLOBALS['type']="success";
+            return;
+        }
+    }
+
      /********************************** Menu de Usuarios ********************************/
     public function Obtener_Usuarios()
     {

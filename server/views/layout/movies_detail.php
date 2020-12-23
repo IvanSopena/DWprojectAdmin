@@ -130,7 +130,7 @@
         ?>
         </div>
         <?php
-            if($titulo != "Añadir Nueva Serie"){
+            if($titulo != "Añadir Nueva Pelicula"){
               $valor = " <div class='col-md-12  form-group'>
                     <select name ='activo' class='form-control' id='exampleFormControlSelect1'> ";
                      if($datos["Active"]==="1"){

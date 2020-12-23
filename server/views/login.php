@@ -13,7 +13,8 @@
                                  <input type="email" class="form-control mb-0" name="email" id="email" placeholder="Email" autocomplete="off" required>
                               </div>
                               <div class="form-group">                                 
-                                 <input type="password" class="form-control mb-0" name="pass"id="pass" placeholder="Contraseña" required>
+                                 <input type="password" class="form-control mb-0 Password1" name="pass"id="pass" placeholder="Contraseña" required>
+                                 <span class="fa fa-fw fa-eye password-icon-login show-password"></span>
                               </div>
                                  <div class="sign-info">
                                     <button type="submit" class="btn btn-primary">Acceder</button>

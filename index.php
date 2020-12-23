@@ -60,6 +60,14 @@ $router->post('/read_notification', function() {
 });
 
 /************* Rutas de Menu ****************/
+/*****Comentarios *****/
+$router->add('/comments', function() { 
+    $GLOBALS['menu']->comments();
+});
+
+$router->post('/send_notification', function() {
+    $GLOBALS['menu']->send_notification();
+});
 /** Usuarios **/
 $router->get('/details', function() {
     $GLOBALS['menu']->detail_users();
