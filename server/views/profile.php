@@ -74,7 +74,7 @@
                                     <div class="form-group row align-items-center">
                                        <div class="col-md-12">
                                           <div class="profile-img-edit">
-                                             <img id="FotoPerfil" class="profile-pic" src="<?php echo  "/DWprojectAdmin/public/img/users/" .$_COOKIE["Foto"]; ?>" alt="profile-pic">
+                                             <img id="FotoPerfil" class="profile-pic" src="<?php echo  "/DWprojectAdmin/public/img/users/" .$GLOBALS['sq']->getfoto(); ?>" alt="profile-pic">
                                              <div class="p-image">
                                                 <i class="ri-pencil-line upload-button"></i>
                                                 <input class="file-upload" id="thefile" name="thefile" type="file" value = ""/>
