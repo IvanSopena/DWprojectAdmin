@@ -1,6 +1,6 @@
-# Streaming Movie 🎥 📺
+# Streaming Movie Adminitration 🎥 📺
 
-Pagina web que simula una plataforma de streaming desarrollada en PHP para el proyecto final de la asignatura de Desarrollo Web.
+Pagina web que simula una plataforma de streaming en su versión de administración con la que podemos añadir y quitar peliculas, series, categorias, etc ademas de enviar notificaciones a los distintos usuarios y ver en un dashboard información de interes para los administradores. Desarrollada en PHP para el proyecto final de la asignatura de Desarrollo Web.
 
 ![SPLASH](https://github.com/IvanSopena/DWProject/blob/main/public/img/tex1.png)
 
@@ -19,10 +19,8 @@ Pagina web que simula una plataforma de streaming desarrollada en PHP para el pr
 
 Aqui se muestran parte de la funcionalidadde la aplicación con una secuencia de imagenes de las distintas vistas.</br>
 
-[![](https://github.com/IvanSopena/DWProject/blob/main/screenshot/Login.jpg)]()
-[![](https://github.com/IvanSopena/DWProject/blob/main/screenshot/Registro.jpg)]()
-[![](https://github.com/IvanSopena/DWProject/blob/main/screenshot/Main.jpg)]()
-[![](https://github.com/IvanSopena/DWProject/blob/main/screenshot/Fav.jpg)]()
-[![](https://github.com/IvanSopena/DWProject/blob/main/screenshot/catalogo.jpg)]()
-[![](https://github.com/IvanSopena/DWProject/blob/main/screenshot/Busqueda.jpg)]()
-[![](https://github.com/IvanSopena/DWProject/blob/main/screenshot/Profile.jpg)]()
+[![](https://github.com/IvanSopena/DWprojectAdmin/blob/master/screenshot/login.jpg)]()
+[![](https://github.com/IvanSopena/DWprojectAdmin/blob/master/screenshot/Dashboard.jpg)]()
+[![](https://github.com/IvanSopena/DWprojectAdmin/blob/master/screenshot/Dashboard_list.jpg)]()
+[![](https://github.com/IvanSopena/DWprojectAdmin/blob/master/screenshot/Gestion.jpg)]()
+[![](https://github.com/IvanSopena/DWprojectAdmin/blob/master/screenshot/Coments.jpg)]()
